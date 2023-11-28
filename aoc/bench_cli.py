@@ -13,7 +13,7 @@ def run():
     # json = os.getenv("AOC_JSON")
     json = True
 
-    name = "aoc.day{:02d}".format(day)
+    name = "aoc.day{:02d}.day{:02d}".format(day, day)
 
     try:
         # Lazily loading the modules prevents the overhad of loading _every_
@@ -24,6 +24,7 @@ def run():
         # and we control the lookup path. Click should also prevent non-integers
         # from being accepted for the DAY argument.
         import importlib
+
         solver = importlib.import_module(name)
     except ModuleNotFoundError:
         import sys
@@ -37,6 +38,7 @@ def run():
         msg = "not implemented"
 
         import json
+
         print(json.dumps(msg))
 
         # this is nonzero for a day that we just haven't implemented yet

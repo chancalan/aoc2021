@@ -30,7 +30,7 @@ def run(day: int, input, json: bool) -> None:
     # we assume that every day has a module named day01, day02, day22, etc.
     # we further assume that the module defines a class named `Solver` that
     # derives from the utils Solver class.
-    name = "aoc.day{:02d}".format(day)
+    name = "aoc.day{:02d}.day{:02d}".format(day, day)
 
     try:
         # Lazily loading the modules prevents the overhad of loading _every_
