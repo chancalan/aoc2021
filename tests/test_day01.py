@@ -1,6 +1,6 @@
 import pytest
 
-from aoc.day01 import Solver
+from aoc.day01.day01 import Solver
 from aoc.util import Solution
 
 
