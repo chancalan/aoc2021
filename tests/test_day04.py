@@ -9,7 +9,7 @@ from aoc.util import Solution
 #############################
 EXAMPLE_PART_ONE = 4512
 EXAMPLE_PART_TWO = 0
-PART_ONE = 0
+PART_ONE = 35711
 PART_TWO = 0
 
 
