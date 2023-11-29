@@ -8,9 +8,9 @@ from aoc.util import Solution
 # ======= solutons =========#
 #############################
 EXAMPLE_PART_ONE = 4512
-EXAMPLE_PART_TWO = 0
+EXAMPLE_PART_TWO = 1924
 PART_ONE = 35711
-PART_TWO = 0
+PART_TWO = 5586
 
 
 #############################
