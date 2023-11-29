@@ -1,4 +1,3 @@
-
 """01: Sonar Sweep"""
 import aoc.util
 
