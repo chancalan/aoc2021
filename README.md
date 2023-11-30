@@ -111,10 +111,10 @@ Benchmark support is provided with
 
 ```
 # with plain poetry
-poetry run pytest tests
+poetry run pytest tests --benchmark-group-by=name
 
 # with poetry shell activated
-pytest tests
+pytest tests --benchmark-group-by=name
 
 # with just
 just all
@@ -153,10 +153,10 @@ just test
 
 ```
 # with plain poetry
-poetry run pytest tests -m "bench"
+poetry run pytest tests -m "bench" --benchmark-group-by=name
 
 # with poetry shell activated
-pytest tests -m "bench"
+pytest tests -m "bench" --benchmark-group-by=name
 
 # with just
 just bench
