@@ -10,7 +10,7 @@ from aoc.util import Solution
 EXAMPLE_PART_ONE = 5934
 EXAMPLE_PART_TWO = 26984457539
 PART_ONE = 380612
-PART_TWO = 0
+PART_TWO = 1710166656900
 
 
 #############################

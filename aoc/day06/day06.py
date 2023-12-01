@@ -2,6 +2,7 @@
 
 """06: Lanternfish"""
 import aoc.util
+from collections import Counter
 
 
 # all solutions should subclass the `Solver` exposed by `aoc.util`
@@ -13,7 +14,13 @@ class Solver(aoc.util.Solver):
         self.input = [int(i) for i in self.input.split(',')]
         self.cache = {}
 
-    def fish_count_down(self, state: int, days: int) -> int:
+    def fish_count_down_dfs_approach(self, state: int, days: int) -> int:
+        """
+        Input: take the state of a fish as int and days left as int
+        Output: total of fish reproduced by the given fish
+        Example: self.fish_count_down_dfs_approach(3, 80 - 1)
+        for a fish that will reproduce in 3 days with 80 days left
+        """
         if (state, days) in self.cache:
             return self.cache[(state, days)]
 
@@ -27,18 +34,30 @@ class Solver(aoc.util.Solver):
             fish_generated.append(remaining_days)
         count = len(fish_generated)
         for days_left_for_each_fish in fish_generated:
-            count += self.fish_count_down(9, days_left_for_each_fish)
+            count += self.fish_count_down_dfs_approach(9, days_left_for_each_fish)
         self.cache[(state, days)] = count
         return count
 
+    def fish_counting(self, days: int) -> int:
+        """
+        Input: number of days left as int
+        Output: the total number of fish exists after the given days
+        using self.input as input
+        """
+        fishes = Counter({i: 0 for i in range(9)})
+        fishes.update(Counter(self.input))
+        for _ in range(days):
+            zeros = fishes[0]
+            for i in range(1, len(fishes)):
+                fishes[i - 1] = fishes[i]
+                fishes[i] = 0
+
+            fishes[6] += zeros
+            fishes[8] += zeros
+        return fishes.total()
+
     def part_one(self) -> int:
-        count = len(self.input)
-        for fish in self.input:
-            count += self.fish_count_down(fish, 80 - 1)
-        return count
+        return self.fish_counting(80)
 
     def part_two(self) -> int:
-        count = len(self.input)
-        """for fish in self.input:
-            count += self.fish_count_down(fish, 256 - 1)"""
-        return count
+        return self.fish_counting(256)
