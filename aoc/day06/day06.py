@@ -11,7 +11,7 @@ class Solver(aoc.util.Solver):
     def __init__(self, input: str):
         # sets self.input to the provided input
         super(Solver, self).__init__(input)
-        self.input = [int(i) for i in self.input.split(',')]
+        self.input = [int(i) for i in self.input.split(",")]
         self.cache = {}
 
     def fish_count_down_dfs_approach(self, state: int, days: int) -> int:

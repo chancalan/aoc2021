@@ -10,7 +10,7 @@ class Solver(aoc.util.Solver):
     def __init__(self, input: str):
         # sets self.input to the provided input
         super(Solver, self).__init__(input)
-        self.input = sorted([int(i) for i in self.input.split(',')])
+        self.input = sorted([int(i) for i in self.input.split(",")])
         self.cache = [0 for _ in range(2000)]
         self.cache[0] = 1
         self.last_seen = 1
@@ -27,7 +27,7 @@ class Solver(aoc.util.Solver):
         return result
 
     def part_one(self) -> int:
-        result = float('inf')
+        result = float("inf")
         for i in range(self.input[0], self.input[-1] + 1):
             temp = 0
             for crab_pos in self.input:
@@ -36,7 +36,7 @@ class Solver(aoc.util.Solver):
         return result
 
     def part_two(self) -> int:
-        result = float('inf')
+        result = float("inf")
         for i in range(self.input[0], self.input[-1] + 1):
             temp = 0
             for crab_pos in self.input:
